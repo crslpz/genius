@@ -4,17 +4,15 @@ const _noUser = Object.freeze({
     id: null
 });
 
-const SessionReducer = (state = _noUser, action);
+const SessionReducer = (state = _noUser, action) =>{
 
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
-            return{
-                id: action.currentUser.id
-            } 
+            return { id: action.currentUser.id };
         case LOGOUT_CURRENT_USER:
-            return state;
+            return _noUser;
         default:
             return state;
     }
-
+};
 export default SessionReducer
