@@ -1,4 +1,4 @@
-class Api::PostsController < ApplicationController
+class Api::UsersController < ApplicationController
 
     def index
         @users = User.all
@@ -12,21 +12,21 @@ class Api::PostsController < ApplicationController
         if @user.save
             render "api/users/show"
         else
-            render json: @user.errors.full_messages, status 400
+            render json: @user.errors.full_messages, status: 422
         end
-    # end
+    end
     # def destroy 
     #     @user = User.find(param[:id])
 
     #     if @user.destroy
     #         render "api/users/show"
     #     else
-    #         render json: @user.errors.full_messages, status: 400
+    #         render json: @user.errors.full_messages, status: 422
     #     end
     # end
 
     private
     def user_params
-        params.require(:post).permit(:username, :email, :password)
+        params.require(:user).permit(:username, :email, :password)
     end
 end
