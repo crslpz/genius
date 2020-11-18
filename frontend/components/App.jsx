@@ -1,9 +1,14 @@
 import React from "react";
+import GodFlowContainer from "./godflow/godflow_container"
 
 const App = () => {
     return(
         <div>
-            <h1>PROPHECY</h1>
+            <header>
+                <h1>PROPHECY</h1>
+                <GodFlowContainer />
+
+            </header>
         </div>
     )
 };
