@@ -8,12 +8,12 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render "api/users/show"
         else
-            render json: ["Invalid email/username and password combination"]
+            render json: ["Invalid email/username and password combination"], status:422
         end
     end
 
     def destroy
-        @user = current_user
+        @user = currentUser
         if @user
             log_out!
             render json: {}

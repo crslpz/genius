@@ -26,6 +26,7 @@ class LoginForm extends React.Component{
         return(
             <div className= 'signin-form-container'>
                 <form onSubmit={ this.handleSubmit} className='login-form-input'>
+                    <p>{this.props.errors ? this.props.errors : null}</p>   
                    <p>Sign In</p>
                 <label> Genius Name:
                 <br/>
@@ -45,7 +46,7 @@ class LoginForm extends React.Component{
                         className='login-details'/>
                 </label>
                 <br/>
-                <button className= 'session-submit' value={login}>Login</button>
+                    <button className='session-submit' value={this.props.formType}>Login</button>
                 </form>
 
 

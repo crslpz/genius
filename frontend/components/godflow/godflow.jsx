@@ -10,7 +10,7 @@ const GodFlow = ({currentUser, logout}) => {
                 <Link to="/login">LOG IN</Link>
             </nav>
         )
-    }
+    };
     const userInfo = () => {
         return(
             <hgroup className="user-header">
@@ -20,7 +20,8 @@ const GodFlow = ({currentUser, logout}) => {
                 <button className="logout-button" onClick={logout}>Log Out</button>
             </hgroup>
         )
-    }
-    return currentUser ? userInfor : newSesh();
+    };
+    debugger
+    return currentUser ? userInfo() : newSesh();
 }
 export default GodFlow;
