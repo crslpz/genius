@@ -8,7 +8,7 @@ const App = () => {
     return(
         <div>
             <header>
-                <h1>GodFlow</h1>
+                {/* <h1>GodFlow</h1> */}
                 <GodFlowContainer />
             </header>
             <AuthRoute path="/login" component= {LoginFormContainer} />

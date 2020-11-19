@@ -4,16 +4,24 @@ import { Link } from "react-router-dom";
 const GodFlow = ({currentUser, logout}) => {
     const newSesh = () => {
         return(
-            <nav className="login-signup">
-                <Link to="/signup">SIGN UP</Link>
-                &nbsp; &nbsp;
-                <Link to="/login">LOG IN</Link>
-            </nav>
+            <hgroup className="user-header">
+                <a href='/'>
+                <img className='logo' src="assets/2.png" alt="Genius Logo"></img>
+                </a>
+                <nav className="login-signup">
+                    <Link to="/signup" className='textss'>SIGN UP</Link>
+                    &nbsp; &nbsp;
+                    <Link to="/login" className= 'textss'>SIGN IN</Link>
+                </nav>
+            </hgroup>
         )
     };
     const userInfo = () => {
         return(
             <hgroup className="user-header">
+                <a href='/'>
+                <img className='logo' src="assets/2.png" alt="Genius Logo"></img>
+                </a>
                 <p className="user-deets">
                     {currentUser.username}
                 </p>
@@ -21,7 +29,7 @@ const GodFlow = ({currentUser, logout}) => {
             </hgroup>
         )
     };
-    debugger
+
     return currentUser ? userInfo() : newSesh();
 }
 export default GodFlow;

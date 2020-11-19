@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :currentUser, :logged_in?
-
+  # before_action :ensure_logged_in!
   private
   def currentUser
     @currentUser ||= User.find_by(session_token: session[:session_token])

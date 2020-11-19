@@ -10,6 +10,6 @@ const msp = ({session, entities: { users }}) => {
 }
 
 const dtp = dispatch =>({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
 });
 export default connect(msp, dtp)(GodFlow);
