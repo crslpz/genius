@@ -26,37 +26,30 @@ class LoginForm extends React.Component{
         return(
             
             <div className= "form_bg">
+
                 <p className='signin-text'>Sign In</p>
-                <br/>
-                <br/>
-                <button className='demo-user'><img className='glogo' src="assets/3.png" alt="Genius Logo"></img> &nbsp; Sign in with DemoUser</button>
-                <br/>
-                <br/>
+                <button className='demo-user'><img className='glogo' src="assets/3.png" alt="Genius Logo"></img> <p> Sign in with DemoUser</p></button>
+
                 <div className= 'form-container2'>
+
                     <form onSubmit={ this.handleSubmit} className='form-input'>
                         <p>{this.props.errors ? this.props.errors : null}</p>   
-                        <br/>
-                        <label> &nbsp; Genius Name:
-                    <br/>
-                    <br/>
-                         <input className= 'input-fields' type= 'text'
+                        {/* <br/> */}
+                        <label> Genius Name:
+                            <input className= 'input-fields' type= 'text'
+                         autoFocus
                             value={this.state.username}
                             onChange={this.update('username')}
                             
                             />
-                    </label>
-                    <br/>
-                    <br/>
-                        <label> &nbsp; Password:
-                    <br/>
-                    <br/>
+                        </label>
+
+                        <label>  Password:
                             <input className='input-fields'  type= 'password'
                             value={this.state.password}
                             onChange={this.update('password')}
                             />
                     </label>
-                    <br/>
-                    <br/>
                         <button className='session-submit' value={this.props.formType}>Login</button>
                     </form>
                 </div>
