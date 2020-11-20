@@ -25,14 +25,15 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            document.body.style.backgroundColor = 'black',
-            <div>
+       
+            <div className='form_bg'>
                 <h1 className= 'signup-text'>SIGN UP</h1>
                 <h2 className='subtext'>and show off your genius</h2>
-                    <br>
-                    
-                    
-                    </br>
+                    <br />
+                    <br />
+                    <button className='demo-user'><img className='glogo' src="assets/3.png" alt="Genius Logo"></img> &nbsp; Sign in with DemoUser</button>
+                    <br />
+                    <br />
                 <div className='form-container'>
                     <p>{this.props.errors ? this.props.errors : null}</p>
                     <form onSubmit={ this.handleSubmit } className="form-input">
@@ -69,7 +70,7 @@ class SignupForm extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <p>'By clicking “Create Account”, you are indicating that you have read and agree to the Terms of Service.'</p>
+                        <p className='disclaimer'>'By clicking “Create Account”, you are indicating that you have read and agree to the Terms of Service.'</p>
                         <br  />
                         <button className='session-submit' value={this.props.formType}>Create Account</button>
                     </form>

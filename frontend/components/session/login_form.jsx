@@ -24,16 +24,22 @@ class LoginForm extends React.Component{
 
     render(){
         return(
-            document.body.style.backgroundColor = 'black',
-            <div>
+            
+            <div className= "form_bg">
                 <p className='signin-text'>Sign In</p>
-                <div className= 'form-container'>
+                <br/>
+                <br/>
+                <button className='demo-user'><img className='glogo' src="assets/3.png" alt="Genius Logo"></img> &nbsp; Sign in with DemoUser</button>
+                <br/>
+                <br/>
+                <div className= 'form-container2'>
                     <form onSubmit={ this.handleSubmit} className='form-input'>
                         <p>{this.props.errors ? this.props.errors : null}</p>   
-                    <label> Genius Name:
-                    
+                        <br/>
+                        <label> &nbsp; Genius Name:
                     <br/>
-                        <input className= 'input-fields' type= 'text'
+                    <br/>
+                         <input className= 'input-fields' type= 'text'
                             value={this.state.username}
                             onChange={this.update('username')}
                             
@@ -41,13 +47,15 @@ class LoginForm extends React.Component{
                     </label>
                     <br/>
                     <br/>
-                    <label> Password:
+                        <label> &nbsp; Password:
+                    <br/>
                     <br/>
                             <input className='input-fields'  type= 'password'
                             value={this.state.password}
                             onChange={this.update('password')}
                             />
                     </label>
+                    <br/>
                     <br/>
                         <button className='session-submit' value={this.props.formType}>Login</button>
                     </form>

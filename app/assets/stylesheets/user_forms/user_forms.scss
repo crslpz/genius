@@ -8,12 +8,24 @@
     border: 20px white;
     margin-left: auto;
     margin-right: auto;
+    
+    // position: absolute;
+}
+.form-container2{
+    display: flex;
+    // align-content: center;
+    background-color: rgb(14, 14, 14);
+    width:370px;
+    height:220px;
+    border: 20px white;
+    margin-left: auto;
+    margin-right: auto;
+    
     // position: absolute;
 }
 
-
 .form-input{
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal; 
     color: rgb(236, 232, 233);
 }
@@ -25,7 +37,7 @@
 }
 
 .signup-text {
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto ', sans-serif;
     text-align: center;
     font-size: 62px;
     color: rgb(255, 255, 90);
@@ -42,7 +54,7 @@
 .input-fields{
     background-color:  rgb(54, 54, 54);
     margin-left: auto;
-    margin-right: auto;
+    // margin-right: auto;
     caret-color: white;
     width: 350px;
     height: 30px;
@@ -51,10 +63,31 @@
 
 
 .signin-text{
-    color: rgb(255, 255, 90);
+    font-family: 'Roboto', sans-serif;
+    color: whitesmoke;
     text-align: center;
-      font-size: 40px;
+    font-size: 40px;
     font-weight:700px;
     line-height: 40px;
-
 }
+
+.demo-user {    
+    font-family: 'Roboto', sans-serif;
+    size: 19px;
+    text-align: center;
+    width: 372px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 90);
+    opacity: 80%;
+    border-radius: 5px;
+}
+
+.glogo{
+    height: 30px;
+}
+
+// .disclaimer{
+//  font-family: ;
+// }
