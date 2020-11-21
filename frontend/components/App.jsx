@@ -3,7 +3,8 @@ import GodFlowContainer from "./godflow/godflow_container";
 import SignupFormContainer from "./session/signup_form_container";
 import LoginFormContainer from './session/login_form_container';
 import { Route } from 'react-router-dom';
-import { AuthRoute } from "../util/route_util"
+import { AuthRoute } from "../util/route_util";
+import TrackFormContainer from './tracks/track_form_container';
 const App = () => {
     return(
         <div>
@@ -13,6 +14,7 @@ const App = () => {
             </header>
             <AuthRoute path="/login" component= {LoginFormContainer} />
             <AuthRoute path="/signup" component= {SignupFormContainer} />
+            <Route path='/tracks/new' component= {TrackFormContainer} />
         </div>
     )
 };
