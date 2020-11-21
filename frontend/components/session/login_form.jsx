@@ -28,7 +28,7 @@ class LoginForm extends React.Component{
             <div className= "form_bg">
 
                 <p className='signin-text'>Sign In</p>
-                <button className='demo-user'><img className='glogo' src="assets/3.png" alt="Genius Logo"></img> <p> Sign in with DemoUser</p></button>
+                <button className='demo-user'><img className='glogo' src={window.geniusBabyLogo} alt="Genius Logo"></img> <p> Sign in with DemoUser</p></button>
 
                 <div className= 'form-container2'>
 

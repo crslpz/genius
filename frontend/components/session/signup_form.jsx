@@ -29,7 +29,7 @@ class SignupForm extends React.Component {
             <div className='form_bg'>
                 <h1 className= 'signup-text'>SIGN UP</h1>
                 <h2 className='subtext'>and show off your genius</h2>
-                    <button className='demo-user'><img className='glogo' src="assets/3.png" alt="Genius Logo"></img> &nbsp; Sign in with DemoUser</button>
+                    <button className='demo-user'><img className='glogo' src={window.geniusBabyLogo} alt="Genius Logo"></img> &nbsp; Sign in with DemoUser</button>
                 <div className='form-container'>
                     <p>{this.props.errors ? this.props.errors : null}</p>
                     <form onSubmit={ this.handleSubmit } className="form-input">
