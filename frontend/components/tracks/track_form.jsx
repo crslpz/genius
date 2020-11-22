@@ -53,6 +53,8 @@ class TrackForm extends React.Component {
                             <label>Country</label>
                         <input className='song-genre'type= 'radio' id='Non-Music' name='Non-Music' value= 'Non-Country' onChange={this.update('genre')}/>
                             <label>Non-Country</label>
+                        <br/>
+                        <p className= 'default-choice'>Note: If you're not sure which tag to use please select “Pop”— you can add secondary tags later</p>
 
                         <h3 className='field-text'>LYRICS*</h3>
                         <textarea className='lyrics-input' value={this.state.lyrics} onChange={this.update('lyrics')} />
