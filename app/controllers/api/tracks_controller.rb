@@ -1,5 +1,5 @@
 class API::TracksController < ApplicationController
-    before_action :ensure_loged_in!
+    before_action :ensure_logged_in!
     def create
         @track = Track.new(track_params)
         if @track.save
@@ -39,6 +39,6 @@ class API::TracksController < ApplicationController
 
     private
     def track_params
-        params.require(:user).permit(:song_name, :artist_name, :lyrics, :produced_by, :featured_by)
+        params.require(:user).permit(:song_name, :artist_name, :lyrics, :produced_by, :featured_by, :genre)
     end
 end

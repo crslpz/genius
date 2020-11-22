@@ -1,0 +1,57 @@
+.page_bg{
+    color: white;
+    // display: flex;
+    background: black;
+    height: 100vh;
+    // justify-content: left;
+}
+
+.heading{
+    font-family: 'Roboto ', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.h2{
+    font-size: 18px;
+    font-weight: 700;
+}
+.page_bg > p{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 21px;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.field-text{
+    font-family: sans-serif;
+    color: #626262;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.detail-input{
+    width: 470px;
+    height: 25px;
+    // font-family: Arial, Helvetica, sans-serif;
+    // font-weight: 400;
+    // size: 15px;
+    // line-height: 20px;
+}
+.song-genre > h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.lyrics-input{
+    width: 478px;
+    height: 500px;
+    // resize: both;
+    // overflow: auto;
+}
+
+hr {
+    color:  #626262;
+}
