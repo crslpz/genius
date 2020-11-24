@@ -6,14 +6,15 @@ import {
 import { Switch } from 'react-router-dom';
 import merge from 'lodash/merge';
 
-const TrackReducer = (oldState = {}, action) => {
+const TracksReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_TRACKS:
             return action.tracks;
         case RECEIVE_TRACK:
             const { track } = action;
-            return Object.assign( {}, oldState, { [track.id]: track })
+            // debugger
+            return Object.assign( {}, oldState, { [action.track.id]: action.track })
         case REMOVE_TRACK:
             let nextState = Object.assign( {}, oldState );
             delete nextState[action.trackId];
@@ -23,4 +24,4 @@ const TrackReducer = (oldState = {}, action) => {
     }
 }
 
-export default TrackReducer;
+export default TracksReducer;

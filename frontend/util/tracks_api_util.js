@@ -1,37 +1,38 @@
-export const fetchTracks = data => {
+export const fetchTracks = tracks => {
     return $.ajax({
         method: 'GET',
-        url: 'api/tracks',
-        data
+        url: '/api/tracks',
+        tracks
     })
 }
 
 export const fetchTrack = trackId => {
     return $.ajax({
         method: 'GET',
-        url:  `api/tracks/${trackId}`
+        url:  `/api/tracks/${trackId}`
     })
 }
 
-export const createTrack = song => {
+export const createTrack = track => {
+ 
     return $.ajax({
         method: 'POST',
-        url: 'api/tracks',
-        data: { song }
+        url: '/api/tracks',
+        data: { track }
     })
 }
 
-export const updateTrack = song => {
+export const updateTrack = track => {
     return $.ajax({
         method: 'PATCH',
-        url: `api/tracks/${song.id}`,
-        data: { song }
+        url: `/api/tracks/${track.id}`,
+        data: { track }
     })
 }
 
 export const removeTrack = trackId => {
     return $.ajax({
         method:"DELETE",
-        url: `api/tracks/${trackId}`
+        url: `/api/tracks/${trackId}`
     })
 }

@@ -3,7 +3,7 @@ import { logout } from "../../actions/session_actions";
 import GodFlow from "./godflow"
 
 const msp = ({session, entities: { users }}) => {
-    // debugger
+    
     return {
         currentUser: users[session.id]
     };

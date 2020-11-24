@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import { createTrack } from '../../actions/track_actions';
 import TrackForm from './track_form';
 
-const msp = (state) => ({
+const msp = (state) => {
 
-});
+   return{
+      author_id: state.session['id']
+ }
+};
 
 const dsp = dispatch => ({
    createTrack: track => dispatch(createTrack(track)) 

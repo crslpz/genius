@@ -10,8 +10,16 @@ class TrackForm extends React.Component {
             produced_by: '',
             song_name: " ",
             lyrics: '',
-            genre: ''
+            genre: '',
+            author_id: this.props.author_id
+
+
         }
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    componentDidMount() {
+        // this.props.requestAllTracks().then(()=> this.props.requestTrack(params))
     }
     update(field){
         return e => this.setState({
@@ -22,7 +30,7 @@ class TrackForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const genius = Object.assign({}, this.state);
-        this.props.processform(genius);
+        this.props.createTrack(genius);
     }
 
     render(){
@@ -66,7 +74,7 @@ class TrackForm extends React.Component {
                         <h3 className='field-text'>PRODUCED BY:</h3>
                         <input className='detail-input' type='text' value={this.state.produced_by} onChange={this.update('produced_by')} />
                         <hr></hr>
-                        <button className='session-submit' value={this.props.formType}>Submit</button>
+                        <button className='session-submit' onClick={this.handleSubmit}>Submit</button>
                     </form> 
                 </div>
             </>

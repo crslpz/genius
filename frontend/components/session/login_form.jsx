@@ -16,6 +16,7 @@ class LoginForm extends React.Component{
         })
     }
 
+
     handleSubmit(e){
         e.preventDefault();
         const genius = Object.assign({}, this.state);
@@ -28,20 +29,18 @@ class LoginForm extends React.Component{
             <div className= "form_bg">
 
                 <p className='signin-text'>Sign In</p>
-                <button className='demo-user'><img className='glogo' src={window.geniusBabyLogo} alt="Genius Logo"></img> <p> Sign in with DemoUser</p></button>
+                <button className='demo-user' onClick={() => this.props.processForm({ username: 'Genius', password: 'password' })}><img className='glogo' src={window.geniusBabyLogo} alt="Genius Logo"></img> <p>Sign in with DemoUser</p></button>
 
                 <div className= 'form-container2'>
 
                     <form onSubmit={ this.handleSubmit} className='form-input'>
                         <p>{this.props.errors ? this.props.errors : null}</p>   
-                        {/* <br/> */}
                         <label> Genius Name:
                             <input className= 'input-fields' type= 'text'
                          autoFocus
-                            value={this.state.username}
-                            onChange={this.update('username')}
-                            
-                            />
+                         value={this.state.username}
+                         onChange={this.update('username')}
+                         />
                         </label>
 
                         <label>  Password:
@@ -52,6 +51,7 @@ class LoginForm extends React.Component{
                     </label>
                         <button className='session-submit' value={this.props.formType}>Login</button>
                     </form>
+                    <div className='instead'> {this.props.navLink}</div>
                 </div>
             </div>
         )
