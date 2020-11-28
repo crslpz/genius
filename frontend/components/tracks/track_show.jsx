@@ -15,11 +15,16 @@ class TrackShow extends React.Component {
                         <div className='song-header'>
                             <img className='bgimage' src= {window.albumBackground}/>
                             <div className= 'overlay'>
-                                <img className='cover' src= {window.albumCover} />
-                                <h1 className='title'>{track.song_name.toUpperCase()}</h1>
-                                <h2 className="artist">{track.artist_name}</h2>
-                                <p className='following-text'>Produced by {track.produced_by} </p>
-                        <p>{track.featured_by}</p>
+                            <div className= 'album-info-container'>
+                                    <img className='cover' src= {window.albumCover} />
+                                <div className="song-deeets">
+                                    <h1 className='title'>{track.song_name.toUpperCase()}</h1>
+                                    <h2 className="artist">{track.artist_name}</h2>
+                                    <p className='following-text'>Produced by {track.produced_by}
+                                    <br/>
+                                    Featuring {track.featured_by}</p>
+                                </div>
+                            </div>
                             </div>
                     </div>
                             <button className ='edit-lyrics'>Edit Lyrics</button>
