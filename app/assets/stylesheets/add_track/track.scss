@@ -64,3 +64,95 @@ hr {
     line-height: 17px;
     color: #cccccc;
 }
+
+//show
+.bgimage{
+    width: 100%;
+    height: 280px;
+}
+
+.song-header{
+    // display: flexbox;
+    // position:relative;
+    height: 280px;
+}
+
+.overlay{
+    display:flex;
+    top: -285px;
+    position: relative;
+    left: 25%;
+    width: 50%;
+    height: 280px;
+    background-color:rgba($color: #000000, $alpha: 0.7);
+}
+
+.cover{
+    border-color:rgb(143, 143, 143);
+    border-style: solid;
+    border-width: 3px;
+    margin-left: 30px;
+    margin-top: 20px;
+    width: 225px;
+    height: 225px;
+}
+
+.title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 41px;
+    color: rgb(255, 255, 90);
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.artist{
+    color:white;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+
+}
+
+.following-text{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    color: #9a9a9a;
+}
+
+.gridd{
+    background-color: rgb(255, 255, 255);
+    display:flex;
+    width: 49.8%;
+    // border: 2px solid green;
+    // justify-content: center;
+    margin-left: 25%;
+}
+.lyrics{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 31px;
+    white-space: pre;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+
+.bg{
+    background-color: rgb(246, 246, 246);
+}
+
+.edit-lyrics{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+   margin-left: 25.9%;
+   margin-top: 2%;
+   width: 93px;
+   height: 33px;
+   border: 3px solid black;
+   background-color: white;
+}

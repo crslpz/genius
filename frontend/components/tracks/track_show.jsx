@@ -3,24 +3,34 @@ import { link, NavLink } from 'react-router-dom';
 
 class TrackShow extends React.Component {
     componentDidMount(){
-        // debugger
         this.props.fetchTrack(this.props.trackId);
     }
-    render(){
-        // debugger;
-        if (!track) return null
-        // if (track.song_name === undefined) return null
-        // console.log(this.props)
-        const { track } = this.props;
+        render(){
+            const { track } = this.props;
+            const tracks = () => {
+                return(
+                    <>
+                        <div className='bg'>
 
-        return(
-            <div>
-                <h1>{track.song_name}</h1>
-                {/* <h2>{track.artist_name}</h2>
-                <p>{track.featured_by} | {track.produced_by} | {track.genre} </p>
-                <p>{track.lyrics}</p> */}
-            </div>
-        )
+                        <div className='song-header'>
+                            <img className='bgimage' src= {window.albumBackground}/>
+                            <div className= 'overlay'>
+                                <img className='cover' src= {window.albumCover} />
+                                <h1 className='title'>{track.song_name.toUpperCase()}</h1>
+                                <h2 className="artist">{track.artist_name}</h2>
+                                <p className='following-text'>Produced by {track.produced_by} </p>
+                        <p>{track.featured_by}</p>
+                            </div>
+                    </div>
+                            <button className ='edit-lyrics'>Edit Lyrics</button>
+                        <div className='gridd'>
+                            <p className= 'lyrics'>{track.lyrics}</p> 
+                        </div>
+                    </div>
+                </>
+            )
+        }
+        return !track ? null : tracks();
     }
 }
 
