@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import TrackForm from './track_form';
 import {fetchTrack, updateTrack} from '../../actions/track_actions'
@@ -22,16 +23,16 @@ class EditTrackForm extends React.Component {
 
 const msp = (state, ownProps) => {
     return {
-        track: state.tracks[ownProps.match.params.trackId],
+        track: state.entities.tracks[ownProps.match.params.trackId],
         formType: 'Update Track'
     }
 }
 
 const dsp = dispatch => {
     return{
-        fetchTrack: trackID => dispatch(fetchTrack(trackId)),
+        fetchTrack: trackId => dispatch(fetchTrack(trackId)),
         action: track => dispatch(updateTrack(track))
     }
 }
 
-export default connnect(msp, dsp)(EditTrackForm);
+export default connect(msp, dsp)(EditTrackForm);

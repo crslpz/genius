@@ -12,15 +12,13 @@ class TrackForm extends React.Component {
             lyrics: '',
             genre: '',
             author_id: this.props.author_id
-
-
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    componentDidMount() {
-        // this.props.requestAllTracks().then(()=> this.props.requestTrack(params))
-    }
+    // componentDidMount() {
+    //     // this.props.requestAllTracks().then(()=> this.props.requestTrack(params))
+    // }
     update(field){
         return e => this.setState({
             [field]: e.target.value

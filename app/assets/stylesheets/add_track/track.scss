@@ -86,6 +86,7 @@ hr {
     left: 25%;
     width: 50%;
     height: 280px;
+    border: 1px solid black;
     background-color:rgba($color: #000000, $alpha: 0.7);
 }
 
@@ -125,12 +126,12 @@ hr {
     color: #9a9a9a;
 }
 
-.gridd{
+.lyrics-container{
     background-color: rgb(255, 255, 255);
     display:flex;
-    width: 49.8%;
-    // border: 2px solid green;
-    // justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
     margin-left: 25%;
 }
 .lyrics{
@@ -141,18 +142,19 @@ hr {
     white-space: pre;
     margin-left: 2%;
     margin-top: 5%;
-    width: 30px;
+    // width: 30px;
 }
 
 .bg{
     background-color: rgb(246, 246, 246);
+
 }
 
 .edit-lyrics{
    font-family: Arial, Helvetica, sans-serif;
    font-weight: 500;
    font-size: 16px;
-   margin-left: 25.9%;
+   margin-left: 2%;
    margin-top: 2%;
    width: 93px;
    height: 33px;
@@ -170,4 +172,29 @@ hr {
     flex-direction: column;
     justify-content: center;
     padding-left: 3%;
+}
+.flex-col-start{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.lyrics-editor{
+    height: 1200px;
+    width: 840px;
+    margin-top: 30px;
+    margin-right: 95px;
+}
+
+.update-lyrics{
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: 500;
+   font-size: 16px;
+   margin-left: 1%;
+   margin-top: 2%;
+   width: 110px;
+   height: 33px;
+   border: 3px solid rgb(17, 196, 35);
+   color: rgb(17, 196, 35);
+   background-color: white;
 }

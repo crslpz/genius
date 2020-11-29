@@ -15,4 +15,4 @@ const dsp = dispatch => ({
     fetchTrack: trackId => dispatch(fetchTrack(trackId))
 });
 
-export default connect (msp,dsp)(TrackShow);
+export default connect(msp,dsp)(TrackShow);
