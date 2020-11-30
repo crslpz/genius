@@ -8,7 +8,7 @@
     border: 20px white;
     margin-left: auto;
     margin-right: auto;
-    
+    margin-bottom: 20px;
     // position: absolute;
 }
 .form-container2{
@@ -20,11 +20,7 @@
     width:370px;
     height:190px;
     border: 20px white;
-    // margin-left: auto;
-    // margin-right: auto;
-    // padding:10px;
-    // color: white;
-    // position: absolute;
+    // margin-bottom: 30px;
 }
 
 .form-input{
@@ -55,19 +51,22 @@
     text-align: center;
     font-size: 62px;
     color: rgb(255, 255, 90);
+    // margin-bottom: 6%;
     
 }
 
 .subtext {
     color: rgb(255, 255, 90);
     text-align: center;
+    margin-bottom: 9%;
 }
 
 
 
 .input-fields{
+    margin-top: 4%;
     background-color:  rgb(54, 54, 54);
-    margin-left: auto;
+    margin-left: 3px;
     // margin-right: auto;
     caret-color: white;
     color: white;

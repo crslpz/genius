@@ -22,7 +22,7 @@ const App = () => {
                 <Route exact path='/tracks/new' component= {TrackFormContainer} />
                 <Route exact path="/tracks/:trackId" component= {TrackShowContainer} />
                 <Route exact path="/tracks/:trackId/edit" component={EditTrackForm} />
-                {/* <Route exact path='/' component= {TrackIndexContainer} /> */}
+                <Route exact path='/index' component= {TrackIndexContainer} />
                 <Route exact path="/" component={Homepage} />
             </Switch>
         </div>

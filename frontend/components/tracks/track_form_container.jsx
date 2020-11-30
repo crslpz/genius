@@ -6,7 +6,8 @@ import TrackForm from './track_form';
 const msp = (state) => {
 
    return{
-      author_id: state.session['id']
+      author_id: state.session['id'],
+      // track: state.entities.tracks.id
  }
 };
 

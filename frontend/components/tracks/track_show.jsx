@@ -11,7 +11,7 @@ class TrackShow extends React.Component {
     }
     componentDidMount() {
         // this.props.fetchTrack(this.props.trackId);
-        debugger
+        // debugger
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState(track.track));
         this.setState({ trackStatus: 'gridd' });
         
@@ -33,7 +33,7 @@ class TrackShow extends React.Component {
         return e => this.setState({ [field]: e.target.value });
     }
     render() {
-        console.log(this.state);
+        // console.log(this.state);
         const { track } = this.props;
  
         const song = () => (

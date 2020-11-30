@@ -11,25 +11,24 @@ class TrackForm extends React.Component {
             song_name: " ",
             lyrics: '',
             genre: '',
-            author_id: this.props.author_id
+            author_id: this.props.author_id,
+            tracks: this.props.tracks
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    // componentDidMount() {
-    //     // this.props.requestAllTracks().then(()=> this.props.requestTrack(params))
-    // }
+
     update(field){
         return e => this.setState({
             [field]: e.target.value
         })
     }
-
     handleSubmit(e){
         e.preventDefault();
         const genius = Object.assign({}, this.state);
-        this.props.createTrack(genius).then(track =>(
-            this.props.history.push(`/tracks/${track.id}`) 
+        this.props.createTrack(genius)
+        .then(track =>(
+            this.props.history.push(`/tracks/${track.track.id}`) 
         ));
     }
 
