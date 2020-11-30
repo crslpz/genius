@@ -28,7 +28,9 @@ class TrackForm extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         const genius = Object.assign({}, this.state);
-        this.props.createTrack(genius);
+        this.props.createTrack(genius).then(track =>(
+            this.props.history.push(`/tracks/${track.id}`) 
+        ));
     }
 
     render(){
@@ -72,7 +74,7 @@ class TrackForm extends React.Component {
                         <h3 className='field-text'>PRODUCED BY:</h3>
                         <input className='detail-input' type='text' value={this.state.produced_by} onChange={this.update('produced_by')} />
                         <hr></hr>
-                        <button className='session-submit' onClick={this.handleSubmit}>Submit</button>
+                        <button className='session-submit' onClick={this.handleSubmit} >Submit</button>
                     </form> 
                 </div>
             </>

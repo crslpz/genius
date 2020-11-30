@@ -23,7 +23,7 @@ class EditTrackForm extends React.Component {
 
 const msp = (state, ownProps) => {
     return {
-        track: state.entities.tracks[ownProps.match.params.trackId],
+        tracks: state.entities.tracks[ownProps.match.params.trackId],
         formType: 'Update Track'
     }
 }

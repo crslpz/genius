@@ -11,6 +11,7 @@ class TrackShow extends React.Component {
     }
     componentDidMount() {
         // this.props.fetchTrack(this.props.trackId);
+        debugger
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState(track.track));
         this.setState({ trackStatus: 'gridd' });
         
@@ -18,7 +19,8 @@ class TrackShow extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
+        console.log(this.props);
+        this.props.action(this.state).then(() => this.setState({trackStatus: 'gridd'}));
     }
     toggleEdit() {
         if (this.state.trackStatus === 'gridd') {
@@ -89,10 +91,10 @@ class TrackShow extends React.Component {
                             {/* <div className='lyrics-container'> */}
                             <br/>
                             <br/>
-                             <button className='update-lyrics'>Propose Edit</button>
                              <button className='edit-lyrics' onClick={this.toggleEdit}>Cancel</button>
                         <form onSubmit={this.handleSubmit}>
-                            <textarea value={track.lyrics} onChange={this.update('lyrics')} className='lyrics-editor' />
+                             <button className='update-lyrics'>Propose Edit</button>
+                            <textarea value={this.state.lyrics} onChange={this.update('lyrics')} className='lyrics-editor' />
                         </form>
                             {/* </div>     */}
                             </div>
