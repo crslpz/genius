@@ -7,7 +7,7 @@ export const REMOVE_TRACK = 'RECEIVE_TRACK';
 export const fetchTracks = () => dispatch => {
     return tracksApiUtil.fetchTracks()
     .then((tracks) => dispatch({
-        type: RECEIVE_ALL_TRACKS,
+        type: RECEIVE_TRACKS,
         tracks
     }))
 }
@@ -43,3 +43,6 @@ export const createTrack = (track) => dispatch => {
         track
     }))
 }
+
+
+

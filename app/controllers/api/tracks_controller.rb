@@ -3,7 +3,7 @@ class Api::TracksController < ApplicationController
     
     def index
         @tracks = Track.all
-        render '/api/tracks/show'
+        @tracks
     end
     
     def show
