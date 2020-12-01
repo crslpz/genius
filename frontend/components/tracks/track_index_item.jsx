@@ -8,7 +8,7 @@ class TrackIndexItem extends React.Component {
             <div>
                 <Link to={`/tracks/${this.props.track.id}`} className='song-title'>{this.props.track.song_name} 
                 </Link> &nbsp;&nbsp;
-                lryics
+                Lyrics
                 &nbsp;&nbsp;
                 {this.props.track.artist_name}
                 <hr/>

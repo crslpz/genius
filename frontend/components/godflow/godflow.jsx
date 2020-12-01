@@ -51,7 +51,7 @@ const GodFlow = ({currentUser, logout}) => {
                     <a href='/'>
                     <img className='logo' src={window.geniusLogo} alt="Genius Logo"></img>
                     </a>
-                    <img className='user-logo' src={window.userLogo} alt="User Logo"></img>
+                    <img className='user-logo' src={window.userLogo} alt="User Logo" onClick={logout}></img>
                         {/* <select id="App options">
                             <option value="Account">Account</option>
                             <option value="View Profile">View Profile</option>
@@ -61,7 +61,7 @@ const GodFlow = ({currentUser, logout}) => {
                     {/* <p className="user-deets">
                         {currentUser.username}
                     </p> */}
-                    <button className="logout-button" onClick={logout}>Log Out</button>
+                    {/* <button className="logout-button" onClick={logout}>Log Out</button> */}
                 </hgroup>
                 <nav className="link-bar">
                     <Link to='/' className='bar-text'>GENIUS LIVE</Link>
