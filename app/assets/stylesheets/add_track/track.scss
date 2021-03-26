@@ -200,14 +200,7 @@ hr {
    background-color: white;
 }
 
-.charts{
-    font-family: 'Roboto', sans-serif;
-    font-size: 80px;
-    font-weight: 900px;
-    line-height: 80px;
-    margin-left: 40%;
-    margin-top: 5%;
-}
+
 .trending{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -217,6 +210,19 @@ hr {
     margin-left: 44%;
 }
 
+.chart-section {
+    display: flex;
+    border: 2px solid red;
+}
+
+.section-info {
+    text-align: center;
+
+}
+
+.chart-contents {
+    text-align: center
+}
 .song-title{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
@@ -225,4 +231,17 @@ hr {
     text-decoration: none;
     color: black;
     margin-left: 25%;
+}
+
+.comment-container{
+      background-color: rgb(255, 255, 255);
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.comment-container textarea {
+    
 }

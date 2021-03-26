@@ -11,7 +11,7 @@ class Api::TracksController < ApplicationController
     end
     
     def destroy
-        @track = @Track.find(params[:id])
+        @track = Track.find(params[:id])
         
         if @track.destroy
             render '/api/tracks/show'
