@@ -17,12 +17,14 @@ class TrackIndex extends React.Component {
             />
         })
         return(
-            <div>
-                <ul>
+            <div className= 'chart-section'>
                     <p className='charts'>CHARTS</p>
+                <ol className= 'section-info'>
                     <p className='trending'>TRENDING ON GENIUS</p>
-                    {allTracks}
-                </ul>
+                    <li>
+                        {allTracks}
+                    </li>
+                </ol>
             </div>
         )
     }

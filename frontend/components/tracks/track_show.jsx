@@ -1,5 +1,6 @@
 import React from 'react';
 import { link, NavLink } from 'react-router-dom';
+import { deleteTrack } from '../../actions/track_actions';
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -32,9 +33,13 @@ class TrackShow extends React.Component {
     update(field) {
         return e => this.setState({ [field]: e.target.value });
     }
+    deleteToggle() {
+            this.props.deleteTrack(this.props.trackId)
+            this.props.history.push(`/`)
+    }
     render() {
         // console.log(this.state);
-        const { track } = this.props;
+        const { track, trackId, deleteTrack } = this.props;
  
         const song = () => (
                 <>
@@ -60,9 +65,13 @@ class TrackShow extends React.Component {
                             <div className= "lyrics-container">
                                 {/* flex column Start */}
                                 <button className='edit-lyrics' onClick={this.toggleEdit}>Edit Lyrics</button>
+                                <button className= 'edit-lyrics' onClick= {() => this.deleteToggle()}>Delete</button>
                                 <p className='lyrics'>{track.lyrics}</p>
                                 {/* flex column end ... */}
-                            </div>                            
+                            </div>      
+                            <div className= 'comment-container'>
+                                <textarea> add a comment </textarea>                          
+                            </div>                      
                         </div>
                         {/* Flex Column End ^^ */}
                     </div>
@@ -75,7 +84,6 @@ class TrackShow extends React.Component {
                     <div className="flex-col-start">
                         {/* Flex Column Start */}
                         <div className='song-header'>
-
                             <img className='bgimage' src={window.albumBackground} />
                             <div className='overlay'>
                                 <div className='album-info-container'>
@@ -107,9 +115,7 @@ class TrackShow extends React.Component {
         )
         const tracks = () => {
             // debugger
-
             if(this.state){
-            
                 switch(this.state.trackStatus)
                 {     
                     case 'editTrack':
@@ -121,7 +127,8 @@ class TrackShow extends React.Component {
             return song();                
             }
             return !track ? null : tracks();
+
+      
     }
 }
-
 export default TrackShow;
