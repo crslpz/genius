@@ -1,0 +1,1 @@
+json.extract! annotation, :id, :track_id, :lyric_selection, :lyric_breakdown
