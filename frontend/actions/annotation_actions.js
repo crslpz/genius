@@ -2,7 +2,7 @@ import * as annotationsApiUtil from '../util/annotations_utils';
 
 export const RECEIVE_ANNOTATIONS = 'RECEIVE_ANNOTATIONS';
 export const RECEIVE_ANNOTATION = 'RECEIVE_ANNOTATION'; 
-export const REMOVE_ANNOTATIONS = 'REMOVE_ANNOTATION';
+export const REMOVE_ANNOTATION = 'REMOVE_ANNOTATION';
 
 export const fetchAnnotations = () => dispatch => {
     return annotationsApiUtil.fetchAnnotations()
