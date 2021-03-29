@@ -4,4 +4,7 @@ class Track < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
 
+        has_many :annotations,
+        foreign_key: :user_id,
+        class_name: :Annotation
 end

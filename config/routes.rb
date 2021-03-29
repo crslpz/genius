@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create]
     resource :session, only: [:create, :destroy]
     resources :tracks, only: [:create, :index, :show, :destroy, :update]
+    resources :annotations, only: [:create, :index, :show, :destroy, :update]
   end
 
 end

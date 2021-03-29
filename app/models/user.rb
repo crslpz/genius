@@ -5,10 +5,12 @@ class User < ApplicationRecord
     validates :password_digest, presence: true
     validates :session_token, presence: true, uniqueness: true
     attr_reader :password
-    #
+    
     has_many :tracks,
     foreign_key: :author_id,
-    class_name: :track
+    class_name: :Track
+
+    has_many :annotations, through: :Tracks
 
     after_initialize :ensure_session_token
    def self.find_by_credentials(username, password)
