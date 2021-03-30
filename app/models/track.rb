@@ -9,15 +9,15 @@ class Track < ApplicationRecord
         class_name: :Annotation
 
     def annotate_items
-        res = []
+        arr = []
         annotations.each do |annotationItems|
-            res << {
+            arr << {
             lyric_position: find_pos(annotationItems.lyric_selection),
             lyric_breakdown: annotationItems.lyric_breakdown,
             author_name: annotationItems.username
             }
         end
-        res
+        arr
     end
 
     def find_pos(annotat_lyrics)

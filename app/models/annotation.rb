@@ -13,3 +13,4 @@ class Annotation < ApplicationRecord
         user.username
     end
 end
+
