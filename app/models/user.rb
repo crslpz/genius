@@ -10,7 +10,9 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Track
 
-    has_many :annotations, through: :Tracks
+    has_many :annotations, 
+    foreign_key: :user_id,
+    class_name: :Annotation
 
     after_initialize :ensure_session_token
    def self.find_by_credentials(username, password)

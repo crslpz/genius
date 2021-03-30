@@ -1,6 +1,8 @@
 import React from 'react';
 import { link, NavLink } from 'react-router-dom';
 import { deleteTrack } from '../../actions/track_actions';
+import AnnotationForm from '../annotations/annotation_form';
+import Annotations from '../annotations/annotation_form_container'
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -43,6 +45,7 @@ class TrackShow extends React.Component {
  
         const song = () => (
                 <>
+                  <AnnotationForm />
                     <div className='bg'>
                         <div className="flex-col-start">
                             {/* Flex Column Start */}

@@ -9,6 +9,7 @@ import TrackShowContainer from './tracks/track_show_container';
 import EditTrackForm from './tracks/track_edit_form_container';
 import TrackIndexContainer from './tracks/track_index_container';
 import Homepage from "./tracks/track_home";
+import AnnotationForm from './annotations/annotation_form_container'
 const App = () => {
     return(
         <div>
@@ -24,6 +25,7 @@ const App = () => {
                 <Route exact path="/tracks/:trackId/edit" component={EditTrackForm} />
                 <Route exact path='/index' component= {TrackIndexContainer} />
                 <Route exact path="/" component={Homepage} />
+                <Route exact path = '/annotations' component = { AnnotationForm } />
             </Switch>
         </div>
     )

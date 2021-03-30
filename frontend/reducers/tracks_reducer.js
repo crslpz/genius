@@ -3,6 +3,12 @@ import {
     RECEIVE_TRACK,
     REMOVE_TRACK,
 } from '../actions/track_actions';
+
+import {
+    RECEIVE_ANNOTATION,
+    RECEIVE_ANNOTATIONS,
+    REMOVE_ANNOTATION
+}    from '../actions/annotation_actions'
 import { Switch } from 'react-router-dom';
 import merge from 'lodash/merge';
 
@@ -19,6 +25,14 @@ const TracksReducer = (oldState = {}, action) => {
             console.log(nextState, action)
             delete nextState[action.trackId];
             return nextState;
+        case RECEIVE_ANNOTATIONS:
+            return action.annotations;
+        case RECEIVE_ANNOTATION:
+            const { annotation } = action;
+            return Object.assign({}, oldState, { [action.annotation.id]: action.annotation })
+        case REMOVE_ANNOTATION:
+            nextState = Object.assign({}, oldState);
+            delete nextState[action.annotationId]
         default:
             return oldState;
     }
