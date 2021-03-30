@@ -4,13 +4,12 @@ import { fetchAnnotation, deleteAnnotation, updateAnnotation } from '../../actio
 import TrackShow from './track_show';
 
 const msp = (state, ownProps) => {
-        debugger;
+        // debugger;
     const trackId = ownProps.match.params.trackId
     return{
     trackId,
     track: state.entities.tracks[trackId]
     }
-    debugger
 };
 
 const dsp = dispatch => ({

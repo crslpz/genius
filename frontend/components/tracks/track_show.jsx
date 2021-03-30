@@ -10,14 +10,13 @@ class TrackShow extends React.Component {
         this.state = this.props.tracks
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
-        
     }
     componentDidMount() {
         // this.props.fetchTrack(this.props.trackId);
         // debugger
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState(track.track));
         this.setState({ trackStatus: 'gridd' });
-        
+        debugger
     }
 
     handleSubmit(e) {
@@ -40,12 +39,12 @@ class TrackShow extends React.Component {
             this.props.history.push(`/`)
     }
     render() {
+        debugger
         // console.log(this.state);
         const { track, trackId, deleteTrack } = this.props;
  
         const song = () => (
                 <>
-                  <AnnotationForm />
                     <div className='bg'>
                         <div className="flex-col-start">
                             {/* Flex Column Start */}
@@ -77,6 +76,7 @@ class TrackShow extends React.Component {
                             </div>                      
                         </div>
                         {/* Flex Column End ^^ */}
+
                     </div>
                 </>
             )

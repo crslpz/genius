@@ -14,6 +14,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Annotation
 
+    has_many: :comments,
+    foreign_key: :author_id,
+    class_name: :Comment
+
     after_initialize :ensure_session_token
    def self.find_by_credentials(username, password)
         user = User.find_by(username: username)

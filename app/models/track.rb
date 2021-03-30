@@ -8,6 +8,10 @@ class Track < ApplicationRecord
         foreign_key: :track_id,
         class_name: :Annotation
 
+        has_many :comments,
+        foreign_key: :track_id,
+        class_name: :Comment
+
     def annotate_items
         arr = []
         annotations.each do |annotationItems|
