@@ -14,7 +14,7 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Annotation
 
-    has_many: :comments,
+    has_many :comments,
     foreign_key: :author_id,
     class_name: :Comment
 

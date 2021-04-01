@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :tracks, only: [:create, :index, :show, :destroy, :update]
     resources :annotations, only: [:create, :index, :show, :destroy, :update]
+    resources :comments, only: [:create, :index, :show, :destroy]
   end
 
 end

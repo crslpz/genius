@@ -16,9 +16,9 @@ class Track < ApplicationRecord
         arr = []
         annotations.each do |annotationItems|
             arr << {
-            lyric_position: find_pos(annotationItems.lyric_selection),
-            lyric_breakdown: annotationItems.lyric_breakdown,
-            author_name: annotationItems.username
+                lyric_position: find_pos(annotationItems.lyric_selection),
+                lyric_breakdown: annotationItems.lyric_breakdown,
+                author_name: annotationItems.username
             }
         end
         arr
@@ -28,5 +28,16 @@ class Track < ApplicationRecord
         start_index = self.lyrics.index(annotat_lyrics)
         end_index = annotat_lyrics.length + start_index
         [start_index, end_index]
+    end
+
+    def comment_items
+        arr = []
+        comments.each do |commentItems|
+            arr << {
+                comment_body: commentItems.body,
+                author_name: commentItems.username
+            }
+        end 
+        arr
     end
 end

@@ -8,7 +8,8 @@ class Comment < ApplicationRecord
     belongs_to :tracks,
     foreign_key: :track_id,
     class_name: :Track
-        
-    end
 
+        def username
+            user.username
+        end
 end

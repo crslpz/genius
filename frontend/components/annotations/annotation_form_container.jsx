@@ -3,7 +3,6 @@ import { createAnnotation } from '../../actions/annotation_actions';
 import AnnotationForm from './annotation_form';
 
 const msp = (state) => {
-    debugger
     return {
         Lyric_selection: state.Lyric_selection,
         Track_id: state.entites.track.id

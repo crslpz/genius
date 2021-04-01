@@ -16,7 +16,6 @@ class TrackShow extends React.Component {
         // debugger
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState(track.track));
         this.setState({ trackStatus: 'gridd' });
-        debugger
     }
 
     handleSubmit(e) {
@@ -38,18 +37,27 @@ class TrackShow extends React.Component {
             this.props.deleteTrack(this.props.trackId)
             this.props.history.push(`/`)
     }
-    render() {
+
+    commentLayout(){
         debugger
+        let comments = this.props.track.comment_items
+        comments.forEach((commentItems) => {
+            console.log(commentItems)
+
+        })
+    }
+
+
+    render() {
         // console.log(this.state);
         const { track, trackId, deleteTrack } = this.props;
- 
+        debugger
         const song = () => (
                 <>
                     <div className='bg'>
                         <div className="flex-col-start">
                             {/* Flex Column Start */}
-                            <div className='song-header'>
-                                
+                            <div className='song-header'>          
                                 <img className='bgimage' src={window.albumBackground} />
                                 <div className='overlay'>
                                     <div className='album-info-container'>
@@ -69,10 +77,11 @@ class TrackShow extends React.Component {
                                 <button className='edit-lyrics' onClick={this.toggleEdit}>Edit Lyrics</button>
                                 <button className= 'edit-lyrics' onClick= {() => this.deleteToggle()}>Delete</button>
                                 <p className='lyrics'>{track.lyrics}</p>
+
                                 {/* flex column end ... */}
                             </div>      
                             <div className= 'comment-container'>
-                                <textarea> add a comment </textarea>                          
+                                {/* <textarea> add a comment </textarea>                           */}
                             </div>                      
                         </div>
                         {/* Flex Column End ^^ */}
@@ -131,7 +140,8 @@ class TrackShow extends React.Component {
             }
             return !track ? null : tracks();
 
-      
     }
 }
 export default TrackShow;
+
+{/* <p>{track.comment_items[0].comment_body}</p> */}
