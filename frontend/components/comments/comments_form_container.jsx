@@ -5,8 +5,7 @@ import CommentForm from './comment_form';
 const msp = (state) => {
     return{
         track_id: state.entities.tracks.id, 
-        // author_name: state.entities.tracks.annotate_items.author_name        
-
+        author_id: state.entities.users[1].id       
     }
 };
 

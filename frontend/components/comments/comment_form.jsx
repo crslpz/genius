@@ -3,14 +3,14 @@ import { withRouter } from 'react-router';
 
 class CommentForm extends React.Component {
     constructor(props){
-        debugger
         super(props)
         this.state = {
             body: '',
-            author_id: this.props.author_id,
-            track_id: ''
+            author_id: this.props.author_id
         }  
-        debugger  
+        this.handleSubmit = this.handleSubmit.bind(this)
+        // console.log(this.state)
+        // debugger
     }
 
     update(field){
@@ -21,19 +21,18 @@ class CommentForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
+        debugger
         const trackComment = Object.assign({}, this.state);
-        this.props.createTrack(trackComment)
-        // .then(track =>(this.props.history.push()))
+        this.props.createComment(trackComment)
+        // .then(() => this.setState({ body: ''}))
     }
 
     render(){
         return(
             <div>
-                <h1 className= 'title'>Comments</h1>
-                <div className= 'comment_form'>
-                    <textarea value={this.state.body} onChange={this.update('body')}></textarea>
-                    <button onClick={this.handleSubmit}>Add comment</button>
-                </div>
+                <h1 className= 'comment-title'>Comments</h1>
+                <textarea placeholder='add a comment' maxLength= '900' value={this.state.body} onChange={this.update('body')}></textarea>
+                <button onClick={this.handleSubmit}>Add comment</button>
             </div>
         )
     }

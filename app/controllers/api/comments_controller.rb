@@ -2,24 +2,29 @@ class API::CommentsController < ApplicationController
     before_action :ensure_logged_in!
 
     def create
+        debugger
         @comment = Comment.new(comment_params)
-
+        @comment.author_id = current_user.id
         if @comment.save!
-            render 'api/comments/show'
+            render 'api/comments/index'
         else
             render json: @comment.errors.full_messages, status: 422
         end
     end
 
+    # def index
+    #     @comment = Comment.all
+    #     @comment
+    # end
     def index
-        @comment = Comment.all
-        @comment
+        if params[:track_id]
+            @comments = Track.find(params[:track_id]).comments
+        else
+            @comments = Comment.all
+        end
+        render :index
     end
-
-    def show
-        @comment = Comment.find(params[:id])
-    end
-
+    
     def destroy
         @comment = Comment.find(params[:id])
         if @comment.destroy

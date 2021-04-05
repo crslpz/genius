@@ -7,7 +7,7 @@ class CommentIndex extends React.Component {
     }
     componentDidMount(){
         this.props.fetchComments();
-        console.log(this.props)
+        // console.log(this.props)
     }
     render(){
         debugger

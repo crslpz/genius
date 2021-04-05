@@ -3,26 +3,42 @@ import { link, NavLink } from 'react-router-dom';
 import { deleteTrack } from '../../actions/track_actions';
 import AnnotationForm from '../annotations/annotation_form';
 import Annotations from '../annotations/annotation_form_container'
+import CommentForm from '../comments/comment_form'
+import Comments from '../comments/comments_form_container'
 
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.tracks
+        this.state = this.props.track
+        // this.state = {
+        //     body: '',
+        //     author_id: '',
+        //     track_id: ''
+        // }
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
     }
     componentDidMount() {
-        // this.props.fetchTrack(this.props.trackId);
-        // debugger
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState(track.track));
-        this.setState({ trackStatus: 'gridd' });
+        this.setState({ 
+            trackStatus: 'gridd'
+        });
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        console.log(this.props);
+        // console.log(this.props);
         this.props.action(this.state).then(() => this.setState({trackStatus: 'gridd'}));
     }
+    handleCommentSubmit(e) {
+        // e.preventDefault();
+        debugger
+        this.prepareComment();
+        const newComment = Object.assign({}, this.state);
+        this.props.createComment(newComment)
+    }
+
     toggleEdit() {
         if (this.state.trackStatus === 'gridd') {
             this.setState({ trackStatus: 'editTrack' });
@@ -42,16 +58,22 @@ class TrackShow extends React.Component {
         debugger
         let comments = this.props.track.comment_items
         comments.forEach((commentItems) => {
-            console.log(commentItems)
-
         })
     }
-
+    prepareComment(){
+        debugger
+        this.setState({
+            author_id: this.props.track.author_id,
+            track_id: this.props.track.id
+        })
+        debugger
+        console.log(this.state, 'preparer')
+    }
 
     render() {
         // console.log(this.state);
         const { track, trackId, deleteTrack } = this.props;
-        debugger
+        // console.log(this.props, 'trackshow', this.state);
         const song = () => (
                 <>
                     <div className='bg'>
@@ -81,7 +103,10 @@ class TrackShow extends React.Component {
                                 {/* flex column end ... */}
                             </div>      
                             <div className= 'comment-container'>
-                                {/* <textarea> add a comment </textarea>                           */}
+                                <h1 className='comment-title'>Comments</h1>
+                                <textarea placeholder='add a comment' maxLength='900' value={this.state.body} onChange={this.update('body')}></textarea>
+                                <button onClick={() => this.handleCommentSubmit()}>Add comment</button>
+                                <h1> {track.comment_items[0].comment_body} </h1>
                             </div>                      
                         </div>
                         {/* Flex Column End ^^ */}
