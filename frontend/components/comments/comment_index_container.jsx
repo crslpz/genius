@@ -5,7 +5,7 @@ import { fetchComments } from '../../actions/comment_actions'
 const msp = (state,ownProps) => {
     debugger
     return{
-        comments: Object.values(state.entities.comments)
+        comments: Object.values(state.entities.tracks.comments)
     }
 }
 

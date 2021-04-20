@@ -31,8 +31,11 @@ export const deleteComment = (commentId) => dispatch => {
 
 export const createComment = (comment) => dispatch => {
     return commentsApiUtil.createComment(comment)
-    .then(comment => dispatch({
+    .then(comment =>{
+        debugger 
+        dispatch({
         type: RECEIVE_COMMENT,
         comment
-    }))
+    })
+    })
 }

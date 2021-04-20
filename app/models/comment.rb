@@ -12,15 +12,4 @@ class Comment < ApplicationRecord
     def username
         user.username
     end
-
-    def comment_info
-        arr = []
-        tracks.each do |ele|
-            arr << {
-                author_id: ele.users.id,
-                track_id: ele.tracks.id 
-            }
-        end
-        arr
-    end
 end

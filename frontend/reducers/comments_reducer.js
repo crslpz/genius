@@ -7,14 +7,16 @@ import {
 import { Switch } from 'react-router-dom';
 import merge from 'lodash/merge';
 
+
 const CommentsReducer = (oldState = {}, action) => {
+    const toObject = (arr, key) => arr.reduce((a, b) => ({ ...a, [b[key]]: b }), {});
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            console.log('comments Reducer' ,oldState, action)
-            return action.comments;
+            // debugger
+            return Object.values(action.comments)
+            // return action.comments;  
         case RECEIVE_COMMENT:
-            debugger
             const { comment } = action;
             return Object.assign( {}, oldState, { [action.comment.id]: action.comment})
         case REMOVE_COMMENT:
