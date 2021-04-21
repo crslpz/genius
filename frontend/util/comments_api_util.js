@@ -6,12 +6,12 @@
 //     })
 // }
 
-// export const fetchComment = commentId => {
-//     return $.ajax({
-//         method: 'GET',
-//         url: `/api/comments/${commentId}`
-//     })
-// }
+export const fetchComment = commentId => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/comments/${commentId}`
+    })
+}
 
 // export const createComment = comment => {
 //     return $.ajax({
@@ -31,7 +31,7 @@
 export const fetchComments = (trackId) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/tracks/${trackId}/comments',
+        url: `/api/tracks/${trackId}/comments`,
         
     })
 }

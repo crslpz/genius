@@ -7,10 +7,12 @@ export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 export const fetchComments = (trackId) => dispatch => {
     return commentsApiUtil.fetchComments(trackId)
-    .then((comments) => dispatch({
+    .then((comments) => {
+        debugger
+        dispatch({
         type: RECEIVE_COMMENTS,
         comments
-    }))
+     })})
 }
 
 export const fetchComment = (commentId) => dispatch => {

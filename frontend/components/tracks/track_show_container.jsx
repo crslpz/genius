@@ -6,10 +6,21 @@ import TrackShow from './track_show';
 
 const msp = (state, ownProps) => {
     const trackId = ownProps.match.params.trackId
+    console.log(trackId);
+    console.log("container comments entit", Object.keys(state.entities.comments))
+
     return{
     trackId,
-    track: state.entities.tracks[trackId]
+    track: state.entities.tracks[trackId],
+    commentKeys: Object.keys(state.entities.comments),
+    comments: state.entities.comments
     }
+
+    // { id: 38, track_id: 9, body: "I am Grootf", author_id: 1, username: "Genius" }
+
+    // 38: { track_id: 9, body: "I am Grootf", author_id: 1, username: "Genius" },
+
+
 };
 
 const dsp = dispatch => ({

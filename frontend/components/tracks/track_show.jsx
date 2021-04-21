@@ -10,13 +10,16 @@ import Comments from '../comments/comments_form_container'
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {track: this.props.track, comments: []}
+        this.state = {track: this.props.track, comments: [], body: '', lyrics: ''}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
 
     }
     componentDidMount() {
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState({track: track.track}));
+
+        // this.props.fetchComments(this.props.trackId).then((comments) => this.setState({ comments: comments.comments }))
+        this.props.fetchComments(this.props.trackId)
         this.setState({ 
             trackStatus: 'gridd',
             track_id: this.props.trackId
@@ -25,10 +28,22 @@ class TrackShow extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        debugger
-        if (prevProps !== this.props) {
-            this.props.fetchComments(this.props.trackId).then((comments) => this.setState({ comments: comments.comments }))
+        console.log("prev", prevProps.comments)
+        console.log("new", this.props.comments)
+
+        if (prevProps.commentKeys.length !== this.props.commentKeys.length) {
+            // debugger
+            // this.props.fetchComments(this.props.trackId).then((comments) => {
+            //     debugger
+            //     this.setState({ comments: comments.comments })})
+            this.setState({comments: this.props.comments})
         }
+
+        // A
+        // if (prevProps.comments.length !== this.props.comments.length) {
+                // add one redux comment on top of it existing this.state.comments
+        // }
+
     }
 
     handleSubmit(e) {
@@ -38,7 +53,7 @@ class TrackShow extends React.Component {
     }
     handleCommentSubmit(e) {
         const newComment = Object.assign({}, this.state);
-        this.props.createComment(newComment)
+        this.props.createComment(newComment).then(() => this.setState({ body: ''}))
         console.log(this.state)
     }
 

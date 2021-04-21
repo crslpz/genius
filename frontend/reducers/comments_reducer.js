@@ -13,11 +13,15 @@ const CommentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            // debugger
-            return Object.values(action.comments)
+            debugger
+            console.log("reducer", action)
+
+            // this makes an array
+            return action.comments
             // return action.comments;  
         case RECEIVE_COMMENT:
             const { comment } = action;
+            //this makes an object
             return Object.assign( {}, oldState, { [action.comment.id]: action.comment})
         case REMOVE_COMMENT:
             let nextState= Object.assign( {}, oldState );
