@@ -10,6 +10,14 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Track
 
+    has_many :annotations, 
+    foreign_key: :user_id,
+    class_name: :Annotation
+
+    has_many :comments,
+    foreign_key: :author_id,
+    class_name: :Comment
+
     # has_many :annotations,
     # foreign_key: :user_id,
     # class_name: :Annotation

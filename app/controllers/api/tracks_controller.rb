@@ -8,6 +8,7 @@ class Api::TracksController < ApplicationController
     
     def show
         @track = Track.find(params[:id])
+        # @track = Track.includes(:comments).find(params[:id])
     end
     
     def destroy
@@ -29,12 +30,6 @@ class Api::TracksController < ApplicationController
             render json: ["Track did not update."], status: 404
         end
     end
-
-    # t.string "lyrics", null: false
-    # t.integer "author_id", null: false
-    # t.string "song_name", null: false
-# dispatch(createTrack({song_name: 'A Milli', lyrics: 'A milli A milli', author_id:1 }))
-
 
     def create
         @track = Track.new(track_params)

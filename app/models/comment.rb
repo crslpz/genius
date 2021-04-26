@@ -1,8 +1,8 @@
-class Annotation < ApplicationRecord
-    validates :track_id, :lyric_selection, :lyric_breakdown, :user_id, presence: true
-    
+class Comment < ApplicationRecord
+    validates :track_id, :author_id, presence: true
+
     belongs_to :user,
-    foreign_key: :user_id, 
+    foreign_key: :author_id,
     class_name: :User
 
     belongs_to :tracks,
@@ -13,4 +13,3 @@ class Annotation < ApplicationRecord
         user.username
     end
 end
-
