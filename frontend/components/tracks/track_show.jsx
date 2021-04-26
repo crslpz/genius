@@ -18,22 +18,18 @@ class TrackShow extends React.Component {
     componentDidMount() {
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState({track: track.track}));
         this.props.fetchComments(this.props.trackId);
-       
-        // this.props.fetchAnnotations(this.props.)
-        debugger
         this.setState({ 
             trackStatus: 'gridd',
-            track_id: this.props.trackId
+            track_id: this.props.trackId,
+            id: this.props.trackId
         });
         console.log("after load", this.props)
     }
 
     componentDidUpdate(prevProps){
-        debugger
         if (prevProps.commentKeys.length !== this.props.commentKeys.length) {
             this.setState({comments: this.props.comments})
         }
-        debugger
         if(prevProps.track !== this.props.track){
             this.setState({ lyrics: this.props.track.lyrics})
         }
@@ -41,7 +37,6 @@ class TrackShow extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.action(this.state).then(() => this.setState({trackStatus: 'gridd'}));
     }
     handleCommentSubmit(e) {
