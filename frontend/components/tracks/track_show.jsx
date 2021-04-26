@@ -10,45 +10,38 @@ import Comments from '../comments/comments_form_container'
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {track: this.props.track, comments: [], body: '', lyrics: ''}
+        this.state = {track: this.props.track, comments: [], body: ''}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
-
+        this.viewAnnotation = this.viewAnnotation.bind(this);
     }
     componentDidMount() {
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState({track: track.track}));
-
-        // this.props.fetchComments(this.props.trackId).then((comments) => this.setState({ comments: comments.comments }))
-        this.props.fetchComments(this.props.trackId)
+        this.props.fetchComments(this.props.trackId);
+       
+        // this.props.fetchAnnotations(this.props.)
+        debugger
         this.setState({ 
             trackStatus: 'gridd',
             track_id: this.props.trackId
         });
-        console.log(this.state, "after load", this.props)
+        console.log("after load", this.props)
     }
 
     componentDidUpdate(prevProps){
-        console.log("prev", prevProps.comments)
-        console.log("new", this.props.comments)
-
+        debugger
         if (prevProps.commentKeys.length !== this.props.commentKeys.length) {
-            // debugger
-            // this.props.fetchComments(this.props.trackId).then((comments) => {
-            //     debugger
-            //     this.setState({ comments: comments.comments })})
             this.setState({comments: this.props.comments})
         }
-
-        // A
-        // if (prevProps.comments.length !== this.props.comments.length) {
-                // add one redux comment on top of it existing this.state.comments
-        // }
-
+        debugger
+        if(prevProps.track !== this.props.track){
+            this.setState({ lyrics: this.props.track.lyrics})
+        }
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        // console.log(this.props);
+        debugger
         this.props.action(this.state).then(() => this.setState({trackStatus: 'gridd'}));
     }
     handleCommentSubmit(e) {
@@ -74,12 +67,6 @@ class TrackShow extends React.Component {
 
     commentLayout(){
         if (this.state.comments != undefined){
-            // debugger
-            // console.log(this.state.comments, 'comment layout')
-            // debugger
-            // this.state.comments.map((comment, idx) => {
-            //     return <li key={idx}>{comment.comment_body}</li>
-            // })
             return Object.keys(this.state.comments).map((id) =>{
                 return (
                     <div className='individual-comment-items'>
@@ -88,12 +75,59 @@ class TrackShow extends React.Component {
                         <p className='comment-body'>{this.state.comments[id].body}</p>
                     </div>
                     ) 
-            })
+            }).reverse()
         } else {
             null
         }
     }
-    
+
+    createLyrics(){
+        if (this.props.track.annotate_items !== undefined){
+
+            let annotations = this.props.track;
+            let oldLyrics = this.props.track.lyrics;
+            let res = [];
+            let start = 0; 
+            let end = oldLyrics.length;
+
+            annotations.annotate_items.map((annotation, idx) => {
+                let annoStart = annotation.lyric_position[0];
+                let annoEnd = annotation.lyric_position[1];
+                let beforeSlice = oldLyrics.slice(start, annoStart);
+                let annoItem = oldLyrics.slice(annoStart, annoEnd);
+                res.push(<p className="lyrics">{beforeSlice}</p>);
+                res.push(<p onClick={() => this.viewAnnotation(idx)} className='annotated-text'>{annoItem}</p>);
+                res.push(<div id= {idx} className= 'anno-view hidden'>
+                    <p className='anno-name'>Genius Annotation</p>
+                    <p>{annotation.lyric_breakdown}</p>
+                    <p className='anno-author'>-Annotated by {annotation.author_name}</p>
+                </div> )
+                start = annoEnd;
+            })
+            
+            let afterAnno = oldLyrics.slice(start, end)
+            res.push(<p className='lyrics'>{afterAnno}</p>)
+            return(
+                <div>
+                    {res}
+                </div> 
+            )
+        } else {
+            null
+        }
+    }
+
+    viewAnnotation(idx){
+        let breakdown = document.getElementById(idx)
+        let annos = document.getElementsByClassName('anno-view')
+        for(let i=0; annos.length>i; i++){
+            let anno = annos[i]
+            if (!anno.classList.contains('hidden') && breakdown !== anno){
+                anno.classList.toggle('hidden');
+            }
+        }
+        breakdown.classList.toggle("hidden")
+    }
 
     render() {
         const { track, trackId, deleteTrack } = this.props;
@@ -120,7 +154,8 @@ class TrackShow extends React.Component {
                             <div className= "lyrics-container">
                                 <button className='edit-lyrics' onClick={this.toggleEdit}>Edit Lyrics</button>
                                 <button className= 'edit-lyrics' onClick= {() => this.deleteToggle()}>Delete</button>
-                                <p className='lyrics'>{track.lyrics}</p>
+                                {/* <p className='lyrics'>{track.lyrics}</p> */}
+                                <>{this.createLyrics()}</>
                             <div className= 'comment-section'>
                                 <div className= 'comment-container'>
                                     <input className='comment-input' placeholder='Add a Comment' maxLength='900' value={this.state.body} onChange={this.update('body')}></input>
@@ -138,7 +173,6 @@ class TrackShow extends React.Component {
             <>
                 <div className='bg'>
                     <div className="flex-col-start">
-                        {/* Flex Column Start */}
                         <div className='song-header'>
                             <img className='bgimage' src={window.albumBackground} />
                             <div className='overlay'>
@@ -156,16 +190,13 @@ class TrackShow extends React.Component {
                             <br/>
                             <br/>
                              <button className='edit-lyrics' onClick={this.toggleEdit}>Cancel</button>
-                        <form onSubmit={this.handleSubmit}>
-                             <button className='update-lyrics'>Propose Edit</button>
-                            <textarea value={this.state.lyrics} onChange={this.update('lyrics')} className='lyrics-editor' />
+                        <form>
+                                    <button onClick={this.handleSubmit} className='update-lyrics'>Propose Edit</button>
+                                    <textarea value={this.state.lyrics} onChange={this.update('lyrics')} className='lyrics-editor' />
                         </form>
-                            {/* </div>     */}
                             </div>
                         </div>
-
                     </div>
-                    {/* Flex Column End ^^ */}
                 </div>
             </>
         )

@@ -138,6 +138,17 @@ hr {
     margin-left: 25%;
     min-width: 600px;
 }
+
+.annotated-text {
+    background-color: rgb(233, 233, 233);
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 31px;
+    margin-left: 2%;
+
+}
 .lyrics{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
@@ -145,8 +156,11 @@ hr {
     line-height: 31px;
     white-space: pre;
     margin-left: 2%;
-    margin-top: 5%;
-    // width: 30px;
+    min-width: 300px;
+}
+
+.annotated-text:hover {
+    animation: view-annotation 0.1s ease-in-out both;
 }
 
 .bg{
@@ -160,6 +174,7 @@ hr {
    font-size: 16px;
    margin-left: 2%;
    margin-top: 2%;
+   margin-bottom: 2%;
    width: 93px;
    height: 33px;
    border: 3px solid black;
@@ -296,4 +311,50 @@ hr {
     width: 95%;
     margin-bottom: 2%;
     background: rgb(127,143, 226);
+}
+
+.anno-view {
+    background-color: white;
+    height: auto;
+    color: black;
+    border-left: 4px solid #8692e6;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 16%;
+    margin-left: 24%;
+    position: absolute;
+    margin-top: -1%;
+}
+
+.anno-name{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4%;
+}
+
+.anno-author{
+    font-size: 12px;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.hidden{
+    display: none;
+}
+
+@keyframes view-annotation {
+    from{
+        background-color: rgb(233, 233, 233);
+    }
+    to{
+        background-color: rgb(255, 255, 90);
+    }
+}
+
+@keyframes reveal-anno-container {
+    
 }

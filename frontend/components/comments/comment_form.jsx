@@ -21,7 +21,6 @@ class CommentForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        debugger
         const trackComment = Object.assign({}, this.state);
         this.props.createComment(trackComment)
         // .then(() => this.setState({ body: ''}))

@@ -8,7 +8,6 @@ export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const fetchComments = (trackId) => dispatch => {
     return commentsApiUtil.fetchComments(trackId)
     .then((comments) => {
-        debugger
         dispatch({
         type: RECEIVE_COMMENTS,
         comments
@@ -34,7 +33,6 @@ export const deleteComment = (commentId) => dispatch => {
 export const createComment = (comment) => dispatch => {
     return commentsApiUtil.createComment(comment)
     .then(comment =>{
-        debugger 
         dispatch({
         type: RECEIVE_COMMENT,
         comment

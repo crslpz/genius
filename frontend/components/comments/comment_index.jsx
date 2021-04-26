@@ -10,7 +10,7 @@ class CommentIndex extends React.Component {
         // console.log(this.props)
     }
     render(){
-        debugger
+
         return(
             <div>
                 <p>you got it</p>
