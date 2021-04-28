@@ -5,12 +5,13 @@ import AnnotationForm from '../annotations/annotation_form';
 import Annotations from '../annotations/annotation_form_container'
 import CommentForm from '../comments/comment_form'
 import Comments from '../comments/comments_form_container'
+import { createAnnotation } from '../../util/annotations_utils';
 
 
 class TrackShow extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {track: this.props.track, comments: [], body: ''}
+        this.state = {track: this.props.track, comments: [], body: '', lyric_breakdown: '', lyric_selection: ''}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
         this.viewAnnotation = this.viewAnnotation.bind(this);
@@ -18,6 +19,7 @@ class TrackShow extends React.Component {
     componentDidMount() {
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState({track: track.track}));
         this.props.fetchComments(this.props.trackId);
+        // this.props.fetchAnnotations(this.props.trackId);
         this.setState({ 
             trackStatus: 'gridd',
             track_id: this.props.trackId,
@@ -45,6 +47,11 @@ class TrackShow extends React.Component {
         console.log(this.state)
     }
 
+    handleAnnoSubmit(e){
+        const newAnno = Object.assign({}, this.state);
+        this.props.createAnnotation(newAnno).then(()=> this.setState({ lyric_selection: '', lyric_breakdown: ''}))
+    }
+
     toggleEdit() {
         if (this.state.trackStatus === 'gridd') {
             this.setState({ trackStatus: 'editTrack' });
@@ -54,6 +61,7 @@ class TrackShow extends React.Component {
     }
     update(field) {
         return e => this.setState({ [field]: e.target.value });
+        debugger
     }
     deleteToggle() {
             this.props.deleteTrack(this.props.trackId)
@@ -91,7 +99,7 @@ class TrackShow extends React.Component {
                 let beforeSlice = oldLyrics.slice(start, annoStart);
                 let annoItem = oldLyrics.slice(annoStart, annoEnd);
                 res.push(<p className="lyrics">{beforeSlice}</p>);
-                res.push(<p onClick={() => this.viewAnnotation(idx)} className='annotated-text'>{annoItem}</p>);
+                res.push(<span onClick={() => this.viewAnnotation(idx)} className='annotated-text'>{annoItem}</span>);
                 res.push(<div id= {idx} className= 'anno-view hidden'>
                     <p className='anno-name'>Genius Annotation</p>
                     <p>{annotation.lyric_breakdown}</p>
@@ -99,9 +107,9 @@ class TrackShow extends React.Component {
                 </div> )
                 start = annoEnd;
             })
-            
             let afterAnno = oldLyrics.slice(start, end)
             res.push(<p className='lyrics'>{afterAnno}</p>)
+            
             return(
                 <div>
                     {res}
@@ -110,6 +118,18 @@ class TrackShow extends React.Component {
         } else {
             null
         }
+    }
+
+    openAnnotationForm(){
+        if(window.getSelection().toString() !== ""){
+            let selection = window.getSelection().toString()
+            let annoForm = document.getElementById('anno-form');
+            if(this.props.track.lyrics.includes(selection)){
+                this.setState({lyric_selection: selection})
+                annoForm.classList.toggle('hidden');
+            }
+        }
+
     }
 
     viewAnnotation(idx){
@@ -150,7 +170,15 @@ class TrackShow extends React.Component {
                                 <button className='edit-lyrics' onClick={this.toggleEdit}>Edit Lyrics</button>
                                 <button className= 'edit-lyrics' onClick= {() => this.deleteToggle()}>Delete</button>
                                 {/* <p className='lyrics'>{track.lyrics}</p> */}
-                                <>{this.createLyrics()}</>
+                                <div onMouseUp={()=> this.openAnnotationForm()}>
+                                    <div id='anno-form' className='create-anno hidden'>
+                                        <div className='anno-setup'>
+                                        <input type="text" className='anno-input' onChange={this.update('lyric_breakdown')} placeholder="Drop some knowledge"></input>
+                                       <button className='update-lyrics' onClick={()=> this.handleAnnoSubmit()}>Save</button>
+                                        </div>
+                                    </div>
+                                        {this.createLyrics()}
+                                </div>
                             <div className= 'comment-section'>
                                 <div className= 'comment-container'>
                                     <input className='comment-input' placeholder='Add a Comment' maxLength='900' value={this.state.body} onChange={this.update('body')}></input>

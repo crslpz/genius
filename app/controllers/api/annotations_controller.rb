@@ -3,7 +3,7 @@ class Api::AnnotationsController < ApplicationController
 
     def create
         @annotation = Annotation.new(annotation_params)
-
+        @annotation.user_id = currentUser.id
         if @annotation.save!
             render 'api/annotations/show'
         else

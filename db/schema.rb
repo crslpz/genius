@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_30_210418) do
+ActiveRecord::Schema.define(version: 2021_04_27_174041) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2021_03_30_210418) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lyric_selection"], name: "index_annotations_on_lyric_selection", unique: true
     t.index ["track_id"], name: "index_annotations_on_track_id"
     t.index ["user_id"], name: "index_annotations_on_user_id"
   end
