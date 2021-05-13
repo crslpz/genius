@@ -35,14 +35,14 @@ class SignupForm extends React.Component {
                     <p>{this.props.errors ? this.props.errors : null}</p>
                     <form onSubmit={ this.handleSubmit } className="form-input">
 
-                        <label> Genius Nickname
+                        <label className='login-form'> Genius Nickname
                             <input type='text'
                                 value={this.state.username}
                                 onChange={this.update('username')}
                                 className='input-fields'
                                 />
                         </label>
-                        <label> Email
+                        <label className='login-form2'> Email
                             <input type='text'
                                 value={this.state.email}
                                 onChange={this.update('email')}
@@ -50,7 +50,7 @@ class SignupForm extends React.Component {
                                 />
 
                         </label>
-                        <label> Password
+                        <label className='login-form2'> Password
                             <input type='password'
                                 value={this.state.password}
                                 onChange={this.update('password')}

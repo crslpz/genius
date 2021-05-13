@@ -18,28 +18,24 @@ const GodFlow = ({currentUser, logout}) => {
     const newSesh = () => {
         return(
             <div>
-                <hgroup className="user-header">
-                    <a href='/'>
+                {/* <hgroup className="user-header"> */}
+                <a className="user-header" href='/'>
                         <img className='logo' src={window.geniusLogo} alt="Genius Logo"></img>
                     </a>
                     <nav className="login-signup">
-                        <Link to="/signup" className='texts'>SIGN UP</Link>
+                        <Link to="/signup" className='textss'>SIGN UP</Link>
                         &nbsp; &nbsp;
                         <Link to="/login" className= 'textss'>SIGN IN</Link>
                     </nav>
-                </hgroup>
+                {/* </hgroup> */}
                     <nav className="link-bar">
-                        <Link to='/' className='bar-text'>GENIUS LIVE</Link>
-                        <p className='bar-text'>|</p>
-                        <Link to='/' className='bar-text'>FEATURED</Link>
-                        <p className='bar-text'>|</p>
-                        <Link to='/' className='bar-text'>CHARTS</Link>
-                        <p className='bar-text'>|</p>
-                        <Link to='/' className='bar-text'>VIDEO</Link>
-                        <p className='bar-text'>|</p>
-                        <Link to='/' className='bar-text'>SHOP</Link>
-                        <p className='bar-text'>|</p>
-                        <Link to='/' className='bar-text'>FORUM</Link>
+                    <Link to='/' className='bar-text'>HOME</Link>
+                    <p className='bar-text'>|</p>
+                    <a href="https://github.com/crslpz/genius" target="_blank" className='bar-text'>GITHUB</a>
+                    <p className='bar-text'>|</p>
+                    <a href="https://www.linkedin.com/in/chris-lopez-67aa27201/" target="_blank" className='bar-text'>LINKED IN</a>
+                    <p className='bar-text'>|</p>
+                    <a href="https://crslpz.github.io/" target="_blank"className='bar-text'>WEBSITE</a>
                     </nav>
             </div>
         )
@@ -47,11 +43,13 @@ const GodFlow = ({currentUser, logout}) => {
     const userInfo = () => {
         return(
             <div>
-                <hgroup className="user-header">
-                    <a href='/'>
+                {/* <hgroup className="user-header"> */}
+                <a href='/' className="user-header">
                     <img className='logo' src={window.geniusLogo} alt="Genius Logo"></img>
                     </a>
+                    <div className= 'user-logo'>
                     <img className='user-logo' src={window.userLogo} alt="User Logo" onClick={logout}></img>
+                    </div>
                         {/* <select id="App options">
                             <option value="Account">Account</option>
                             <option value="View Profile">View Profile</option>
@@ -62,22 +60,17 @@ const GodFlow = ({currentUser, logout}) => {
                         {currentUser.username}
                     </p> */}
                     {/* <button className="logout-button" onClick={logout}>Log Out</button> */}
-                </hgroup>
+                {/* </hgroup> */}
                 <nav className="link-bar">
-                    <Link to='/' className='bar-text'>GENIUS LIVE</Link>
+                    <Link to='/' className='bar-text'>HOME</Link>
                     <p className='bar-text'>|</p>
-                    <Link to='/' className='bar-text'>FEATURED</Link>
+                    <a href="https://github.com/crslpz/genius" target="_blank" className='bar-text'>GITHUB</a>
                     <p className='bar-text'>|</p>
-                    <Link to='/' className='bar-text'>CHARTS</Link>
+                    <a href="https://www.linkedin.com/in/chris-lopez-67aa27201/" target="_blank" className='bar-text'>LINKED IN</a>
                     <p className='bar-text'>|</p>
-                    <Link to='/' className='bar-text'>VIDEO</Link>
-                    <p className='bar-text'>|</p>
-                    <Link to='/' className='bar-text'>SHOP</Link>
-                    <p className='bar-text'>|</p>
-                    <Link to='/' className='bar-text'>FORUM</Link>
+                    <a href="https://crslpz.github.io/" target="_blank" className='bar-text'>WEBSITE</a>
                     <p className='bar-text'>|</p>
                     <Link to='/tracks/new' className='bar-text'>ADD A SONG</Link>
-                    <p className='bar-text'>|</p>
                 </nav>
             </div>
         )

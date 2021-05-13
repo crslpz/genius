@@ -19,6 +19,7 @@ const App = () => {
             <header>
                 {/* <h1>GodFlow</h1> */}
                 <GodFlowContainer />
+                
             </header>
             <Switch>
                 <AuthRoute path="/login" component= {LoginFormContainer} />
@@ -32,6 +33,8 @@ const App = () => {
                 <Route exact path = '/comments' component = { CommentFormContainer } />
                 <Route exact path = 'comments/index' component = { CommentIndexContainer } />
             </Switch>
+
+
         </div>
     )
 };

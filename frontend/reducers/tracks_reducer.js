@@ -29,7 +29,7 @@ const TracksReducer = (oldState = {}, action) => {
             return action.annotations;
         case RECEIVE_ANNOTATION:
             const { annotation } = action;
-            return Object.assign({}, oldState, { [action.annotation.id]: action.annotation })
+            return Object.assign({}, oldState, { [annotation.id]: annotation })
         case REMOVE_ANNOTATION:
             nextState = Object.assign({}, oldState);
             delete nextState[action.annotationId]

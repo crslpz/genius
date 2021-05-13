@@ -40,7 +40,7 @@ class TrackForm extends React.Component {
                     <h1 className= 'heading'>Add Song</h1>
                     <h2 className='h2'>Primary info</h2>
                     <p>*required fields</p>
-                    <hr></hr>
+                    <div className='divider'></div>
                     <h3 className='field-text'>BY*</h3>
                     <form>
                         <input className='detail-input' type="text" value={this.state.artist_name} onChange={this.update('artist_name')}/>
@@ -67,14 +67,14 @@ class TrackForm extends React.Component {
                         <h3 className='field-text'>LYRICS*</h3>
                         <textarea className='lyrics-input' value={this.state.lyrics} onChange={this.update('lyrics')} />
                         <h2 className='h2'>Additional Metadata</h2>
-                        <hr></hr>
+                        <div className='divider'></div>
 
                         <h3 className='field-text'>FEATURING:</h3>
                         <input className='detail-input' type='text' value={this.state.featured_by} onChange={this.update('featured_by')} />
                         <h3 className='field-text'>PRODUCED BY:</h3>
                         <input className='detail-input' type='text' value={this.state.produced_by} onChange={this.update('produced_by')} />
-                        <hr></hr>
-                        <button className='session-submit' onClick={this.handleSubmit} >Submit</button>
+                        <div className='divider'></div>
+                        <button className='session-submits' onClick={this.handleSubmit} >Submit</button>
                     </form> 
                 </div>
             </>

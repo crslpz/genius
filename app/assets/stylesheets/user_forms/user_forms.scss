@@ -20,7 +20,7 @@
     width:370px;
     height:190px;
     border: 20px white;
-    // margin-bottom: 30px;
+    margin-left: 40%;
 }
 
 .form-input{
@@ -31,7 +31,7 @@
     font-family: 'Roboto', sans-serif;
     font-style: normal; 
     color: rgb(236, 232, 233);
- width:370px;
+    width:370px;
     height:190px;
 }
 
@@ -98,6 +98,8 @@
     background-color: rgb(255, 255, 90);
     opacity: 80%;
     border-radius: 5px;
+    margin-left: 40%;
+    margin-top: 5%;
 }
 
 .glogo{
@@ -106,4 +108,12 @@
 
 .disclaimer{
  font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-form{
+    margin-top: 30%;
+}
+
+.login-form2{
+    margin-top: 2%;
 }

@@ -5,7 +5,7 @@ import TrackIndex from './track_index_container'
 const Homepage = () => {
     return (
         <>
-            <img className='page-temp' src={window.pageTemp} alt="page-temp"></img>
+            {/* <img className='page-temp' src={window.pageTemp} alt="page-temp"></img> */}
             <TrackIndex />
         </>
     )

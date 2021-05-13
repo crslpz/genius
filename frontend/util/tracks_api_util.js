@@ -23,7 +23,7 @@ export const createTrack = track => {
 }
 
 export const updateTrack = track => {
-    debugger
+    // debugger
     return $.ajax({
         method: 'PATCH',
         url: `/api/tracks/${track.id}`,

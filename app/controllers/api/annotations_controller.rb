@@ -12,7 +12,9 @@ class Api::AnnotationsController < ApplicationController
     end
 
     def index
-        @annotations = Annotation.all
+        # {id: 182, track_id: 9, lyric_selection: "It's a lot of bad things", lyric_breakdown: "so bad", user_id: 32}
+        #  1 = 2.
+        @annotations = Annotation.where(track_id: params[:track_id])
         @annotations
     end
 

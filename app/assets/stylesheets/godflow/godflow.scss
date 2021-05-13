@@ -1,4 +1,4 @@
-git .form_bg{
+.form_bg{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -14,6 +14,9 @@ body{
     line-height: 23px;
     padding-top: 9px;
     padding-right: 25px;
+    position:absolute;
+    margin-top: -40px;
+    margin-left: 87%;
 }
 .textss{
  font-family: 'Roboto', sans-serif;
@@ -29,24 +32,29 @@ body{
     justify-content: flex-end;
     background-color: rgb(255, 255, 90);
 }
-// login-signup
+
+.charts{
+    font-family: 'Muli', sans-serif;
+    font-weight: 800;
+    font-size: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .logo {
-  width: 125px;
+ width: 125px;
   height: 17px;
-  align-items: center;
-  margin: auto;
-    padding-top: 10px;
-  padding-right: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
 }
 
 .user-logo{
     height: 35px;
     width: 35px;
     position: absolute;
-    right:0;
-    margin-right: 3px;
-    margin-top: 3px;
+    margin-left: 93%;
+    margin-top: -19px;
 
 }
 
@@ -93,4 +101,76 @@ body{
     margin-left: 10%;
     height: 80%;
     margin-top: 5%;
+}
+
+.home{
+    margin:auto;
+    width: 800px;
+    height: 2000px;
+    background-color: dodgerblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.pink{
+    width:800px;
+    height:150px;
+    background-color: pink;
+}
+.fauxcontainer{
+    width: 800px;
+    height: 1500px;
+    background-color: lime;
+}
+
+.smallbox{
+    top:50vh;
+    right:5%;
+    width:100px;
+    height:300px;
+    background-color: red;
+    position: sticky;
+
+    
+}
+
+.reallybig{
+    font-size: 60px;
+}
+
+.chart-list{
+    list-style: none;
+    // border: 2px solid green;
+    width: 70%;
+    margin: auto;
+}
+
+.chart-deets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.li-chart{
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    height: 79px;
+    background: white;
+}
+
+.chart-look{
+    padding-right: 5vw;
+    font-family: sans-serif;
+    font-size: 30px;
+}
+
+.chart-looks{
+    font-family: sans-serif;
+    margin: auto
+}
+
+
+.li-chart:hover {
+    background-color: rgb(235, 235, 235);
 }

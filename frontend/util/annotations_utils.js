@@ -1,10 +1,10 @@
 // import { $CombinedState } from "redux"
 
-export const fetchAnnotations = annotations => {
+export const fetchAnnotations = (trackId) => {
     return $.ajax({
         method: 'GET',
-        url: '/api/annotations',
-        annotations
+        url: `/api/${trackId}/annotations`,
+        
     })
 }
 

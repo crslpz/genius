@@ -30,7 +30,7 @@ export const deleteTrack = (trackId) => dispatch => {
 }
 
 export const updateTrack = (track) => dispatch => {
-    debugger
+    // debugger
     return tracksApiUtil.updateTrack(track)
         .then(track => dispatch({
             type: RECEIVE_TRACK,

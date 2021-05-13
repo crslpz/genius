@@ -8,6 +8,7 @@ class Api::TracksController < ApplicationController
     
     def show
         @track = Track.find(params[:id])
+        # @track = Track.includes(:annotations).find(params[:id])
         # @track = Track.includes(:comments).find(params[:id])
     end
     

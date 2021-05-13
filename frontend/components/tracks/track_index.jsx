@@ -10,21 +10,22 @@ class TrackIndex extends React.Component {
         this.props.fetchTracks();
     }
     render(){
-        const allTracks = this.props.tracks.slice(-6, -1).map(track => {
+        const allTracks = this.props.tracks.slice(-11, -1).map((track, idx) => {
             return <TrackIndexItem
                 track={track}
                 key= {track.id}
+                idx = {idx + 1}
             />
         })
         return(
             <div className= 'chart-section'>
                     <p className='charts'>CHARTS</p>
-                <ol className= 'section-info'>
+                <div className= 'section-info'>
                     <p className='trending'>TRENDING ON GENIUS</p>
-                    <li>
+                    <ol className='chart-list'>
                         {allTracks}
-                    </li>
-                </ol>
+                    </ol>
+                </div>
             </div>
         )
     }

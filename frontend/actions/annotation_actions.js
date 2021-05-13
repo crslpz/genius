@@ -4,8 +4,8 @@ export const RECEIVE_ANNOTATIONS = 'RECEIVE_ANNOTATIONS';
 export const RECEIVE_ANNOTATION = 'RECEIVE_ANNOTATION'; 
 export const REMOVE_ANNOTATION = 'REMOVE_ANNOTATION';
 
-export const fetchAnnotations = () => dispatch => {
-    return annotationsApiUtil.fetchAnnotations()
+export const fetchAnnotations = (trackId) => dispatch => {
+    return annotationsApiUtil.fetchAnnotations(trackId)
     .then((annotations) => dispatch({
         type: RECEIVE_ANNOTATIONS,
         annotations
