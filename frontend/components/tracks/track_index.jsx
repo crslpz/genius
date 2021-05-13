@@ -6,7 +6,6 @@ class TrackIndex extends React.Component {
         super(props)
     }
     componentDidMount(){
-        console.log(this.props)
         this.props.fetchTracks();
     }
     render(){

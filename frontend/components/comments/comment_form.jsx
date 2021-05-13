@@ -9,8 +9,6 @@ class CommentForm extends React.Component {
             author_id: this.props.author_id
         }  
         this.handleSubmit = this.handleSubmit.bind(this)
-        // console.log(this.state)
-        // debugger
     }
 
     update(field){

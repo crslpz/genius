@@ -1,4 +1,4 @@
-import { combineReducers } from 'Redux';
+import { combineReducers } from 'redux';
 import usersReducer from './users_reducer';
 import TracksReducer from './tracks_reducer';
 import CommentsReducer from './comments_reducer'

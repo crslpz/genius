@@ -26,9 +26,6 @@ class TrackShow extends React.Component {
             track_id: this.props.trackId,
             id: this.props.trackId
         });
-        // debugger
-        console.log("after load", this.props)
-        debugger
     }
 
     componentDidUpdate(prevProps){
@@ -38,7 +35,6 @@ class TrackShow extends React.Component {
         if(prevProps.track !== this.props.track){
             this.setState({ lyrics: this.props.track.lyrics, annotations: this.props.track.annotate_items})
         }
-        // if(prevProps.track.)
     }
 
     handleSubmit(e) {
@@ -48,7 +44,6 @@ class TrackShow extends React.Component {
     handleCommentSubmit(e) {
         const newComment = Object.assign({}, this.state);
         this.props.createComment(newComment).then(() => this.setState({ body: ''}))
-        console.log(this.state)
     }
 
     handleAnnoSubmit(e){
@@ -68,7 +63,6 @@ class TrackShow extends React.Component {
     }
     }
     update(field) {
-        // debugger
         return e => this.setState({ [field]: e.target.value });
     }
     deleteToggle() {
@@ -101,7 +95,6 @@ class TrackShow extends React.Component {
         sortedArr.sort((a, b) => {
             return a - b;
         })
-        console.log('here you are mayne', sortedArr)
         sortedArr.forEach((ele) => {
             annotations.forEach((annotation) => {
                 if (annotation.lyric_position[0] === ele){
@@ -109,8 +102,6 @@ class TrackShow extends React.Component {
                 }
             })
         })
-        // debugger
-        console.log('this is the new items', res)
         return sortedArr;
     }
 
@@ -130,7 +121,6 @@ class TrackShow extends React.Component {
                     }
                 })
             })
-            debugger
             sortedAnnos.map((annotation, idx) => {
                 let annoStart = annotation.lyric_position[0];
                 let annoEnd = annotation.lyric_position[1];
@@ -260,7 +250,6 @@ class TrackShow extends React.Component {
             </>
         )
         const tracks = () => {
-            // debugger
             if(this.state){
                 switch(this.state.trackStatus)
                 {     

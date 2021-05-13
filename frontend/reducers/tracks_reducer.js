@@ -22,7 +22,7 @@ const TracksReducer = (oldState = {}, action) => {
              return Object.assign( {}, oldState, { [action.track.id]: action.track })
         case REMOVE_TRACK:
             let nextState = Object.assign( {}, oldState );
-            console.log("track reducers",nextState, action)
+            ("track reducers",nextState, action)
             delete nextState[action.trackId];
             return nextState;
         case RECEIVE_ANNOTATIONS:

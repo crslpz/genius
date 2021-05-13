@@ -13,7 +13,6 @@ const CommentsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     switch (action.type) {
         case RECEIVE_COMMENTS:
-            console.log("reducer", action)
             return action.comments 
         case RECEIVE_COMMENT:
             const { comment } = action;

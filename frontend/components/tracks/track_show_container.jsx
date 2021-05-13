@@ -6,8 +6,6 @@ import TrackShow from './track_show';
 
 const msp = (state, ownProps) => {
     const trackId = ownProps.match.params.trackId
-    console.log(trackId);
-    console.log("container comments entit", state.entities)
 
     return{
         trackId,
