@@ -15,7 +15,8 @@ class Api::TracksController < ApplicationController
     def destroy
         @track = Track.find(params[:id])
         
-        if @track.destroy
+        if @track.user == currentUser
+            @track.destroy
             render '/api/tracks/show'
         else
             render json: @track.errors.full_messages, status: 422

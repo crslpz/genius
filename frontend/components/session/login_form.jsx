@@ -21,6 +21,7 @@ class LoginForm extends React.Component{
         e.preventDefault();
         const genius = Object.assign({}, this.state);
         this.props.processForm(genius);
+        // debugger
     }
 
     render(){
@@ -34,7 +35,7 @@ class LoginForm extends React.Component{
                 <div className= 'form-container2'>
 
                     <form onSubmit={ this.handleSubmit} className='form-input'>
-                        <p>{this.props.errors ? this.props.errors : null}</p>   
+                        <p className='errors'>{this.props.errors ? this.props.errors : null}</p>   
                         <label> Genius Name:
                             <input className= 'input-fields' type= 'text'
                          autoFocus

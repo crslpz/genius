@@ -11,7 +11,8 @@ const msp = (state, ownProps) => {
         trackId,
         track: state.entities.tracks[trackId],
         commentKeys: Object.keys(state.entities.comments),
-        comments: state.entities.comments
+        comments: state.entities.comments,
+        user: Object.keys(state.entities.users)[0]
         // annotationItems: state.entities.tracks[trackId].annotate_items
     }
 

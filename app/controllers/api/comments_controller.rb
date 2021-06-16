@@ -26,8 +26,10 @@ class Api::CommentsController < ApplicationController
     # end
     
     def destroy
+        # binding.pry
         @comment = Comment.find(params[:id])
-        if @comment.destroy
+        if @comment.user == currentUser
+            @comment.destroy
             render 'api/comments/show'
         else
             render json: @comment.errors.full_messages, status: 422

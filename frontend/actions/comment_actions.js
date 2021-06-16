@@ -23,7 +23,7 @@ export const fetchComment = (commentId) => dispatch => {
 }
 
 export const deleteComment = (commentId) => dispatch => {
-    return commentsApiUtil.deleteAnnotation(commentId)
+    return commentsApiUtil.deleteComment(commentId)
     .then(comment => dispatch({
         type: REMOVE_COMMENT,
         commentId: comment.id

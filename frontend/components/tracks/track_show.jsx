@@ -17,6 +17,7 @@ class TrackShow extends React.Component {
         this.viewAnnotation = this.viewAnnotation.bind(this);
     }
     componentDidMount() {
+        // debugger
         this.props.fetchTrack(this.props.trackId).then((track) => this.setState({track: track.track}));
         this.props.fetchComments(this.props.trackId);
         this.props.fetchAnnotations(this.props.trackId);
@@ -78,6 +79,12 @@ class TrackShow extends React.Component {
                         <div className= 'line'></div>
                         <p key= {id} className='comment-user'>{this.state.comments[id].username}</p>
                         <p className='comment-body'>{this.state.comments[id].body}</p>
+                        {
+
+                            this.props.user == this.state.comments[id].author_id && (
+                                <button className='comment-button-delete' onClick= {()=> {this.props.deleteComment(id)}}>delete</button>
+                            )
+                        }
                     </div>
                     ) 
             }).reverse()
@@ -161,6 +168,7 @@ class TrackShow extends React.Component {
     viewAnnotation(idx){
         let breakdown = document.getElementById(idx)
         let annos = document.getElementsByClassName('anno-view')
+        // debugger
         for(let i=0; annos.length>i; i++){
             let anno = annos[i]
             if (!anno.classList.contains('hidden') && breakdown !== anno){
@@ -168,6 +176,7 @@ class TrackShow extends React.Component {
             }
         }
         breakdown.classList.toggle("hidden")
+        // debugger
     }
 
     render() {

@@ -369,7 +369,21 @@
     margin-bottom: 4%;
 }
 
-
+.comment-button-delete {
+    appearance: none;
+    margin-left: 25px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    width: 70px;
+    height: 35px;
+    border: 2px solid rgb(93, 199, 70);
+    background: white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    font-weight: 400;
+    color: rgb(93, 199, 70);
+}
 
 .anno-setup{
     text-align: left;
@@ -382,6 +396,10 @@
     font-size: 12px;
     margin-top: 2%;
     margin-left: 2%;
+}
+
+.errors{
+    color: red;
 }
 
 .hidden{
