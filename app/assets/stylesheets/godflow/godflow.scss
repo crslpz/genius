@@ -147,16 +147,17 @@ body{
 
 .chart-deets{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
+    width: 41%;
     align-items: center;
 }
 
 .li-chart{
     display: flex;
     padding: 0 20px;
-    justify-content: space-between;
     height: 79px;
     background: white;
+
 }
 
 .chart-look{
@@ -167,9 +168,10 @@ body{
 
 .chart-looks{
     font-family: sans-serif;
-    margin: auto
-}
+    margin-left: 25%;
+    margin-top: 4%;
 
+}
 
 .li-chart:hover {
     background-color: rgb(235, 235, 235);
